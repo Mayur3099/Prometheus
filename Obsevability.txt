@@ -1,0 +1,23 @@
+Obsevability
+Three Pillars of observability
+	- Logs
+	- Metrics
+	- Traces
+
+Monitoring
+
+What is time series data
+
+Tools used for monitoring
+Prometheus
+
+Scraping
+
+Data Model of Prometheus
+Data Types in Prometheus	--> Query Language PromQL
+Prometheus Queries
+Arithmetic operators in prometheus
+Set Binary Operators		--> and, or, unless
+Matchers/Selectors
+
+Graph is only for instant vectors not for range vector
