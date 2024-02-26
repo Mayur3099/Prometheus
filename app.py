@@ -1,11 +1,16 @@
 from flask import Flask
+from prometheus_flask_exporter import PrometheusMetrics
+
 import time
 import random as rand
 
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
+
+metrics.info('app_info', 'Application Info', version='1.0.1')
 
 @app.route("/")
-def default():
+def main():
     return {
         "data": "Connected Successfully!"
     }, 200
@@ -20,6 +25,11 @@ def heavy():
         "delay": str(delay) + " secs"
     }, 200
 
+@app.route("/error")
+def error():
+    return {
+        "status": "Error T_T"
+    }, 500
 
 if __name__ == "__main__":
-    app.run()
+    app.run("0.0.0.0", 5000, threaded=True)

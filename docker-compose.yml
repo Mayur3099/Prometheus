@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    ports:
+      - 5000:5000
+  prom-server:
+    image: prom/prometheus
+    ports:
+      - 9050:9090
+    volumes:
+      - ./prometheus-config.yml:/etc/prometheus/prometheus.yml
